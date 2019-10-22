@@ -1,0 +1,28 @@
+.search-div{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.search-box-input{
+    outline: 0;
+    border-bottom-width: 2px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    background-color:transparent;
+    color: white;
+    width: 30%;
+    font-size: 25px;
+}
+
+.search-box-button{
+    background-color: transparent;
+    border: 0;
+    size: 0;
+}
+
+.search-icon {
+    color: white;
+    cursor: pointer;
+}
