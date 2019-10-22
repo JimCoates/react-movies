@@ -38,7 +38,6 @@ const Home = () => {
 
     return (
         <div className = "main">
-            <Header/>
             <Search search = {handleSearch}></Search>
             <div className = "movie">
             {movies && movies.map((movie, index) => (

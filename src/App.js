@@ -1,14 +1,20 @@
-import React, { useState, useEffect }from 'react';
+import React from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom'
+import { Router, Link } from '@reach/router'
 import Home from './home/home'
+import MovieDetails from './moviedetails/moviedetails'
+import Header from './header/header';
 
 const App = () => {
 
   return(
-    <Switch>
-      <Route exact path = "/" component= {Home } />
-    </Switch>
+    <div className = "big-div">
+      <Header></Header>
+      <Router>
+        <Home path = "/"/>
+        <MovieDetails path = "/details/:id"/>
+      </Router>
+    </div>
   )
 }
 
