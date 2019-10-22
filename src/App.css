@@ -1,5 +1,6 @@
 @import './movie/movie.css';
 @import './search/search.css';
+@import './header/header.css';
 
 .main{
   background-color: #282c34;

@@ -1,50 +1,15 @@
 import React, { useState, useEffect }from 'react';
 import './App.css';
-import Search from './search/Search';
-import { APIkey, SEARCH_MOVIE_URI } from './constants/constants'
-import Movie from './movie/Movie';
+import { Route, Switch } from 'react-router-dom'
+import Home from './home/home'
 
 const App = () => {
-  const[movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    fetch(SEARCH_MOVIE_URI)
-      .then(response => response.json())
-      .then(jsonResponse => {
-        setMovies(jsonResponse.results);
-      });
-  }, []);
-
-
-  const handleSearch = searchValue => {
-    var results = [];
-
-    fetch("https://api.themoviedb.org/3/search/movie?api_key=" + APIkey + "&language=en-US&query=" + searchValue + "&page=1&include_adult=false")
-    .then(resp => resp.json())
-    .then(data => {data.results.forEach(element => {
-        if(element.poster_path != null){
-          results.push(element);
-        }
-    });
-        console.log(data.results)
-        setMovies(results)
-        
-    })
-    .catch(function(error){
-        console.log(error)
-    });
-}
-
-  return (
-    <div className = "main">
-        <Search search = {handleSearch}></Search>
-        <div className = "movie">
-          {movies && movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie}></Movie>
-          ))}
-        </div>
-    </div>
-    );
+  return(
+    <Switch>
+      <Route exact path = "/" component= {Home } />
+    </Switch>
+  )
 }
 
 export default App;
